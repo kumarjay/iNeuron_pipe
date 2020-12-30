@@ -35,6 +35,6 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Deploy to Heroku
       if: github.ref == 'refs/heads/master' && job.status == 'success'
-      run:
-        git remote add heroku https://heroku:cf0e05d9-4eca-4948-a012-b91fe9704bab@git.heroku.com/ineuron-pipe02.git
+      run: |
+        git remote add heroku https://heroku:${{ secrets.INEURON_TOKEN_01 }}@git.heroku.com/ineuron-pipe01.git
         git push heroku HEAD:master -f

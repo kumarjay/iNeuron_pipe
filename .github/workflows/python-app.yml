@@ -36,6 +36,7 @@ jobs:
     - name: Add origin
       env: 
         HEROKU_APP_TOKEN: ${{ secrets.INEURON_TOKEN_01 }}
+      if: github.ref == 'refs/heads/master' && job.status == 'success' 
       run: |
         git remote add heroku https://heroku:$HEROKU_APP_TOKEN@git.heroku.com/ineuron-pipe01.git
         

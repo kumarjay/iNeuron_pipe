@@ -37,6 +37,7 @@ jobs:
       if: github.ref == ${{github.ref}} && job.status == 'success'
       run: |
         git remote add heroku https://heroku:$HEROKU_APP_TOKEN@git.heroku.com/ineuron-pipe01.git
+        echo ${{github.ref}}
         
     - name: Deploy to Heroku
       run: |

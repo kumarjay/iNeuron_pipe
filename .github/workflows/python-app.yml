@@ -34,9 +34,7 @@ jobs:
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Add origin
-      env: 
-        HEROKU_APP_TOKEN: ${{ secrets.INEURON_TOKEN_01 }}
-      if: github.ref == 'refs/heads/master' && job.status == 'success' 
+      if: github.ref == 'refs/heads/master' && job.status == 'success'
       run: |
         git remote add heroku https://heroku:$HEROKU_APP_TOKEN@git.heroku.com/ineuron-pipe01.git
         

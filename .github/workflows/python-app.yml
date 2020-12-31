@@ -16,9 +16,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: docker login
+      env:
+        DOCKER_USER: ${{ secrets.DOCKER_HUB }}
+        DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
+      run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASS
     - name: docker build python
       run: |
         docker build -t ineuron_git01 .
+    - name:
+      run: |
+        docker push kumarjay2107/ineuron_pipeline:1.0
     - run: |
         git fetch --prune --unshallow
     - name: Set up Python 3.8

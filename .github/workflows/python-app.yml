@@ -29,7 +29,7 @@ jobs:
         docker build -t ineuron_git01 .
     - name: docker push
       run: |
-        docker push kumarjay2107/ineuron_pipeline:1.0
+        docker push kumarjay2107/ineuron_pipeline
     - run: |
         git fetch --prune --unshallow
     - name: Set up Python 3.8

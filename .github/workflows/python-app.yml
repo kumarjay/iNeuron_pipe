@@ -38,7 +38,8 @@ jobs:
       run: |
         git remote add heroku https://heroku:${{ secrets.HEROKU_TOKEN }}@git.heroku.com/ineuron-pipe01.git
         echo ${{github.ref}}
+        echo ${{secrets.HEROKU_TOKEN}}
         
     - name: Deploy to Heroku
       run: |
-        git push heroku HEAD:main -f
+        git push heroku HEAD:master -f

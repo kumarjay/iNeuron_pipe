@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       run: |
-            git fetch --prune --unshallow
+        git fetch --prune --unshallow
     - name: Set up Python 3.8
       uses: actions/setup-python@v2
       with:
@@ -35,7 +35,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Deploy to Heroku
       env:
-        HEROKU_API_TOKEN: ${{secrets.heroku_tok}}
+        HEROKU_API_TOKEN: ${{secrets.HEROKU_TOKEN}}
       if: github.ref == 'refs/heads/main' && job.status == 'success'
       run:
         git remote add heroku https://heroku:$HEROKU_API_TOKEN@git.heroku.com/ineuron-pipe01.git

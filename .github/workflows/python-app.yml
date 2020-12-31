@@ -16,6 +16,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: docker build python
+      run: |
+        docker build -t ineuron_git01 .
     - run: |
         git fetch --prune --unshallow
     - name: Set up Python 3.8

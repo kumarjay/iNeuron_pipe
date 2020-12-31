@@ -17,14 +17,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: docker login
-      uses: mr-smithers-excellent/docker-build-push@v5
+    - uses: mr-smithers-excellent/docker-build-push@v5
       with:
         image: kumarjay2107/ineuron_pipeline
         registry: docker.io
         username: ${{ secrets.DOCKER_HUB}}
         password: ${{ secrets.DOCKER_PASS }}
 
-      run: |
+    - run: |
         docker login -u $username -p $password
     - name: docker build python
       run: |

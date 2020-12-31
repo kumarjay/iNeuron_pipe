@@ -24,8 +24,6 @@ jobs:
         username: ${{ secrets.DOCKER_HUB}}
         password: ${{ secrets.DOCKER_PASS }}
 
-    - run: |
-        docker login -u $username -p $password
     - name: docker build python
       run: |
         docker build -t ineuron_git01 .
